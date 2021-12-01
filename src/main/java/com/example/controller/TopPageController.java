@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/user")
-public class FormController {
+public class TopPageController {
 
-
-    @GetMapping("/form")
-    public String getForm() {
-
-        return "user/form";
+    /** ユーザー一覧画面を表示 */
+    @GetMapping("/toppage")
+    public String getTopPage() {
+        // ユーザー一覧画面を表示
+        return "user/toppage";
     }
 }
