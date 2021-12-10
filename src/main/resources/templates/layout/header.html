@@ -10,15 +10,11 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#">ホーム</a>
       </div>
-      <form method="post" th:action="@{/question}">
-        <button class="btn btn-link pull-right navbar-brand" type="submit">
-
-        </button>
+      <form method="post" th:action="@{/user/question}">
+        <input type="submit" value="質問する"  class="btn btn-primary" />
       </form>
       <form method="post" th:action="@{/logout}">
-        <button class="btn btn-link pull-right navbar-brand" type="submit">
-          ログアウト
-        </button>
+        <input type="submit" value="ログアウト"  class="btn btn-primary " />
       </form>
     </div>
   </nav>

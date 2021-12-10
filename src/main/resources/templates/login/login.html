@@ -15,6 +15,7 @@
   <div class="text-center">
     <form method="post" th:action="@{/login}" class="form-login">
       <h2>ログイン</h2>
+      <p th:if="${param.error}">ログインに失敗しました</p>
       <!-- ユーザーID -->
       <div class="form-group">
         <label for="userId" class="sr-only">ユーザーID</label>

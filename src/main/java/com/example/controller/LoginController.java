@@ -13,7 +13,7 @@ public class LoginController {
         return "login/login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/success")
     public String postLogin() {
         return "redirect:/user/toppage";
     }

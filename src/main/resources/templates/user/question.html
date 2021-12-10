@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/layout}">
+<head>
+  <title>質問</title>
+  <!-- 個別CSS読込 -->
+  <link rel="stylesheet" th:href="@{/css/user/question.css}">
+</head>
+<body>
+  <div layout:fragment="content">
+    <form th:action="@{/user/toppage}" th:object="${QAndAForm}" method="post">
+        <table>
+            <tr>
+                <th>タイトル</th>
+                <td><input type="text" size="80" name="title" th:field="*{title}"></td>
+            </tr>
+            <tr>
+                <th>質問内容</th>
+                <td><textarea  rows="10" cols="80"  th:field="*{question}">
+                </textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="登録">
+    </form>
+  </div>
+</body>
+</html>
