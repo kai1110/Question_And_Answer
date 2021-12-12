@@ -7,4 +7,6 @@ import com.example.domain.user.model.MUser;
 public interface UserRepository extends JpaRepository<MUser, String> {
 
     MUser findByUserId(String userId);
+
+
 }

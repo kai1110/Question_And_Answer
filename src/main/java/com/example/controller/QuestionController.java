@@ -25,9 +25,9 @@ public class QuestionController {
     @PostMapping("/toppage")
     public String postQuestion(@ModelAttribute QAndAForm form) {
 
-        QAUser qa = modelMapper.map(form, QAUser.class);
+        QAUser qauser = modelMapper.map(form, QAUser.class);
 
-        qaService.saveQuestion(qa);
+        qaService.question(qauser);
 
         return "redirect:user/toppage";
     }
