@@ -18,8 +18,22 @@ public class QAServiceImpl implements QAService {
 
     @Transactional
     @Override
-    public void question(QAUser qauser) {
+    public Integer saveQuestion(QAUser qa) {
+    }
 
-        repository.save(qauser);
+
+    @Transactional
+    @Override
+    public Integer saveAnswer(QAUser qa) {
+        return repository.saveByIdAndAnswerTime(qa.getAnswer(), qa.getAnswerUserId(),
+                qa.getQuestionId(), qa.getAnswerTime());
+    }
+
+    @Override
+    public QAUser getQAById(Integer questionId) {
+            return repository.getById(questionId);
+    }
+    public void deleteById(Integer questionId) {
+           repository.deleteById(questionId);
     }
 }

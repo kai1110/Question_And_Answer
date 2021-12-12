@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,10 +25,17 @@ public class QuestionController {
     @PostMapping("/toppage")
     public String postQuestion(@ModelAttribute QAndAForm form) {
 
-        QAUser qauser = modelMapper.map(form, QAUser.class);
+        QAUser qa = modelMapper.map(form, QAUser.class);
 
-        qaService.question(qauser);
+        qaService.saveQuestion(qa);
 
         return "redirect:user/toppage";
+    }
+
+    @PostMapping("/question/destroy/{questionId}")
+    public String destroyQuestion(@PathVariable Integer questionId) {
+        //  質問情報を取得
+        qaService.deleteById(questionId);
+        return "redirect:/user/toppage";
     }
 }

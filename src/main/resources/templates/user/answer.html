@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/layout}">
+<head>
+  <title>回答</title>
+  <!-- 個別CSS読込 -->
+  <link rel="stylesheet" th:href="@{/css/user/question.css}">
+</head>
+<body>
+  <div layout:fragment="content">
+    <form th:action="@{/user/answer}" th:object="${form}" method="post">
+        <table>
+            <tr>
+                <td><input type="text" size="80" th:field="*{title}" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="text" size="80" th:field="*{questionTime}" readonly></td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea  rows="10" cols="80"  th:field="*{question}" readonly></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" th:field="*{questionUserId}" readonly>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <textarea  rows="10" cols="80" th:field="*{answer}" ></textarea>
+                    <div class="invalid-feedback" th:errors="*{answer}"></div>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" th:field="*{questionId}" />
+        <input type="hidden" th:field="*{answerTime}" />
+        <input type="submit" value="回答する" th:if="${isEdit}">
+    </form>
+    <form th:action="@{/user/answer/destroy/{questionId}(questionId=*{questionId})}" th:object="${form}" method="post">
+        <input type="submit" value="削除する" th:if="${isEdit}">
+    </form>
+  </div>
+</body>
+</html>

@@ -74,6 +74,14 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     /**
+     * ユーザーIDを取得する.
+     *
+     * @return ユーザーID
+     */
+    public String getUserId() {
+        return user.getUserId();
+    }
+    /**
      * ユーザーアカウントが有効期限内か確認するフラグを取得する. ユーザー情報が有効な場合は、有効期限内とする.
      *
      * @return アカウント有効期限内フラグ
